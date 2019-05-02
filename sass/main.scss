@@ -1,0 +1,214 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// CBRS
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+/////////////
+// Variables
+$color-white: #ede8e8;
+$color-numpad: #192029;
+$color-numpad-operations: #364355;
+$color-numpad-actions: #50637e;
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: $color-white;
+  background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(79,85,121,1) 0%, rgba(90,84,120,1) 100%, rgba(252,70,107,1) 100%);
+}
+
+// Remove highlighting
+::selection {
+  background-color: none;
+}
+
+////////////////////
+// Main App Styling
+.calculator {
+  height: 45rem;
+  width: 28rem;
+  margin: 25rem auto; // center calculator inside the body
+  
+  // Positioning
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 3.5rem 1fr repeat(5, 1fr);
+  grid-gap: 1px;
+
+  font-size: 2.5rem;
+  background-color: #222f3e;
+  box-shadow: -1px 10px 48px -1px rgba(0,0,0,0.58);
+  border: .8rem #47586b solid;
+  border-radius: .5rem;
+
+  // Center vertically and horizontally items
+  & > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-numpad;
+    cursor: default;
+
+    &:hover {
+      background-color: #252e3b;
+    }
+  }
+
+  // Calculator operations and functions
+  &__display--1 {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+
+    justify-content: flex-end;
+    padding-right: 1.8rem;
+    font-size: 2.5rem;
+    border: none;
+    background-color: #344457;
+
+    &:hover {
+      background-color: #344457; // no change on hover
+    }
+  }
+  ////////////////
+  // Main calculator display
+  &__display--2 {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+
+    position: relative;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    font-weight: 300;
+    font-size: 4rem;
+    border: none;
+    background-color: #222f3e;
+    transition: all .3s;
+
+    &:hover {
+      background-color: #222f3e;
+      transform: scale(1.1);
+      border-radius: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  &__allclear {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    background-color: $color-numpad-actions;
+  }
+
+  &__clear {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    background-color: $color-numpad-actions;
+  }
+
+  &__back {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    background-color: $color-numpad-actions;
+    fill: $color-white;
+  }
+
+  &__divide {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+    background-color: $color-numpad-operations;
+  }
+
+  &__multiply {
+    grid-column: 4 / 5;
+    grid-row: 4 / 5;
+    background-color: $color-numpad-operations;
+  }
+
+  &__minus {
+    grid-column: 4 / 5;
+    grid-row: 5 / 6;
+    background-color: $color-numpad-operations;
+  }
+
+  &__plus {
+    grid-column: 4 / 5;
+    grid-row: 6 / 7;
+    background-color: $color-numpad-operations;
+  }
+
+  &__equals {
+    grid-column: 4 / 5;
+    grid-row: 7 / 8;
+    background-color: $color-numpad-operations;
+
+    &:hover {
+      background-color: #2e86de;
+    }
+
+  }
+
+  // Calculator Numbers
+  &__number {
+
+    &--0 {
+      grid-column: 2 / 3;
+      grid-row: 7 / 8;
+    }
+
+    &--1 {
+      grid-column: 1 / 2;
+      grid-row: 6 / 7;
+    }
+
+    &--2 {
+      grid-column: 2 / 3;
+      grid-row: 6 / 7;
+    }
+
+    &--3 {
+      grid-column: 3 / 4;
+      grid-row: 6 / 7;
+    }
+
+    &--4 {
+      grid-column: 1 / 2;
+      grid-row: 5 / 6;
+    }
+
+    &--5 {
+      grid-column: 2 / 3;
+      grid-row: 5 / 6;
+    }
+
+    &--6 {
+      grid-column: 3 / 4;
+      grid-row: 5 / 6;
+    }
+
+    &--7 {
+      grid-column: 1 / 2;
+      grid-row: 4 / 5;
+    }
+
+    &--8 {
+      grid-column: 2 / 3;
+      grid-row: 4 / 5;
+    }
+
+    &--9 {
+      grid-column: 3 / 4;
+      grid-row: 4 / 5;
+    }
+
+  }
+}
