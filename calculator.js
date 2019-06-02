@@ -25,7 +25,7 @@ let sign = '';
 function inputNumber(num) {
   if (input == '' && num.textContent === '0') return;
   // 8 digit limit
-  if (Number(input) > 10000000 || Number(input) < -10000000) return;
+  if (Number(input).toString().length >= 8) return;
   input += num.textContent;
   displayInput = Number(input).toLocaleString();
   mainDisplay.textContent = displayInput;
@@ -104,7 +104,7 @@ function handleOperation() {
   }
 
   // 8 digit limit
-  if (result > 10000000 || result < -10000000) {
+  if (result.toString().length > 8) {
     clearAll();
     mainDisplay.textContent = 'ERR';
     return;
