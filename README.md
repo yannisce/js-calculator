@@ -1,5 +1,5 @@
 # :pager:	JavaScript Calculator
-A simple calculator written in JavaScript and using CSS Grid for styling
+A simple calculator written in JavaScript using CSS Grid for the layout.
 
 To quickly get started run:
   ```
